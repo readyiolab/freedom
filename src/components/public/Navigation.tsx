@@ -24,7 +24,7 @@ const Navigation = () => {
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
       isScrolled 
-        ? 'bg-white/95 backdrop-blur-lg shadow-[var(--shadow-card)]' 
+        ? 'bg-white backdrop-blur-lg shadow-[0_4px_6px_-1px_rgba(0,0,0,0.1)]' 
         : 'bg-transparent'
     }`}>
       <div className="container mx-auto px-6 lg:px-8">
@@ -45,7 +45,7 @@ const Navigation = () => {
                 key={item.label}
                 href={item.href}
                 className={`font-medium transition-colors hover:text-primary ${
-                  isScrolled ? 'text-foreground' : 'text-white'
+                  isScrolled ? 'text-foreground' : 'text-white '
                 }`}
               >
                 {item.label}

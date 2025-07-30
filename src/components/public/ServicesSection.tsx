@@ -96,12 +96,12 @@ const ServicesSection = () => {
                 ))}
               </div>
 
-              <Button
+              {/* <Button
                 variant="ghost"
                 className="mt-5 w-full   bg-black  text-white transition-colors"
               >
                 Learn More <ArrowRight className="w-4 h-4" />
-              </Button>
+              </Button> */}
             </Card>
           ))}
         </div>

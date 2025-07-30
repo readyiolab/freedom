@@ -42,7 +42,7 @@ const HeroSection = () => {
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">35+</div>
                 <div className="text-white/80 text-xs sm:text-sm">Years Experience</div>
               </div>
-              <div className="text-center lg:text-left">
+              <div className="text-center lg:text-left ">
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">$75M+</div>
                 <div className="text-white/80 text-xs sm:text-sm">Deal Minimum</div>
               </div>

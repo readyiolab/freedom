@@ -3,7 +3,8 @@ import { Toaster } from './components/ui/toaster';
 import { Toaster as Sonner } from './components/ui/sonner';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from './components/hooks/useAuth';
-import Layout from './components/admin/Layout/Layout';
+import Layout from './components/admin/layout/Layout';
+
 import Login from './components/admin/Auth/Login';
 import Index from './pages/admin/Index';
 import LeadsPage from './pages/admin/LeadsPage';

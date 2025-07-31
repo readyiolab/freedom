@@ -175,7 +175,7 @@ const ContactSection = () => {
         </div>
 
         {/* CTA Section */}
-        <div className="bg-primary rounded-3xl p-12 text-center fade-in-up stagger-2">
+        <div className="bg-[#be3144] rounded-3xl p-12 text-center fade-in-up stagger-2">
           <h3 className="text-3xl font-bold text-white mb-4">
             Your Journey to Freedom Starts Here
           </h3>
@@ -183,10 +183,15 @@ const ContactSection = () => {
             Join the founders who've successfully transitioned to their next chapter. 
             Let's discuss how we can help you achieve your vision of freedom.
           </p>
-          <Button variant="gold" size="xl" className="group">
-            Book Your Consultation
-            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
+          <Button
+  
+  size="xl"
+  className="group bg-white text-black hover:bg-white ho"
+>
+  Book Your Consultation
+  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+</Button>
+
         </div>
       </div>
     </section>

@@ -58,39 +58,39 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16 fade-in-up">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+    <section className="py-12 sm:py-16 lg:py-24 bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+        <div className="max-w-5xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20 fade-in-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 sm:mb-6 lg:mb-8">
             Comprehensive M&A{' '}
-            <span className="text-gradient-primary">Solutions</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e63950] to-[#be3144]">Solutions</span>
           </h2>
-          <p className="text-xl text-foreground-soft leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-foreground-soft leading-relaxed max-w-2xl sm:max-w-3xl mx-auto">
             We offer a full spectrum of merger and acquisition services, each tailored to your unique
             situation and definition of freedom.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 xl:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-12 sm:mb-16 lg:mb-20">
           {services.map((service, index) => (
             <Card
               key={index}
-              className={`card-premium p-8 hover-lift group fade-in-up stagger-${index % 4 + 1} flex flex-col h-full`}
+              className={`card-premium p-6 sm:p-8 lg:p-10 hover-lift group fade-in-up stagger-${index % 4 + 1} flex flex-col h-full bg-white/95 border border-[#3a4750]/20 hover:border-[#e63950] transition-all duration-300 shadow-xl hover:shadow-2xl rounded-2xl`}
             >
-              <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-primary/20 transition-colors">
-                <service.icon className="w-8 h-8 text-primary" />
+              <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#e63950]/10 rounded-3xl flex items-center justify-center mb-6 sm:mb-8 group-hover:bg-[#e63950]/20 transition-colors duration-300">
+                <service.icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#e63950]" />
               </div>
 
-              <h3 className="text-2xl font-bold text-foreground mb-4">{service.title}</h3>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground mb-4 sm:mb-6">{service.title}</h3>
 
-              <p className="text-foreground-soft mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base lg:text-lg text-foreground-soft mb-6 sm:mb-8 leading-relaxed flex-grow">
                 {service.description}
               </p>
 
-              <div className="space-y-2 flex-grow">
+              <div className="space-y-2 sm:space-y-3">
                 {service.features.map((feature, idx) => (
-                  <div key={idx} className="flex items-center gap-2 text-sm text-foreground-soft">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full"></div>
+                  <div key={idx} className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm lg:text-base text-foreground-soft">
+                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#e63950] rounded-full"></div>
                     {feature}
                   </div>
                 ))}
@@ -98,56 +98,56 @@ const ServicesSection = () => {
 
               {/* <Button
                 variant="ghost"
-                className="mt-5 w-full   bg-black  text-white transition-colors"
+                className="mt-6 sm:mt-8 w-full bg-[#e63950] text-white hover:bg-[#be3144] transition-colors duration-300 text-base sm:text-lg py-4 sm:py-6 rounded-xl"
               >
-                Learn More <ArrowRight className="w-4 h-4" />
+                Learn More <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Button> */}
             </Card>
           ))}
         </div>
 
-        <div className="bg-gray-100 rounded-3xl p-12 fade-in-up stagger-3">
-          <div className="max-w-3xl mx-auto text-center">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Process</h3>
-            <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+        <div className="bg-gray-100/80 rounded-3xl p-8 sm:p-12 lg:p-20 fade-in-up stagger-3 shadow-lg">
+          <div className="max-w-5xl mx-auto text-center">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 sm:mb-8 lg:mb-10">Our Process</h3>
+            <p className="text-base sm:text-lg lg:text-2xl text-gray-600 mb-8 sm:mb-10 lg:mb-12 leading-relaxed">
               Our process is hands-on from day one. We work with you to position your company,
               refine the narrative, and prepare your business to be presented in the most attractive,
               credible, and strategic manner possible.
             </p>
 
-            <div className="grid md:grid-cols-3 gap-6 mb-12">
-              <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center space-y-4 hover:shadow-lg transition-shadow duration-300">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-12 sm:mb-16 lg:mb-20">
+              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 flex flex-col items-center space-y-6 sm:space-y-8 hover:shadow-2xl transition-shadow duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#e63950]/10 rounded-full flex items-center justify-center text-gray-900 font-bold text-2xl sm:text-3xl group-hover:bg-[#e63950]/20 transition-colors">
                   1
                 </div>
-                <h4 className="font-semibold text-gray-900 text-lg">Discovery</h4>
-                <p className="text-sm text-gray-600 leading-relaxed">Define your freedom and assess your options</p>
+                <h4 className="font-semibold text-gray-900 text-xl sm:text-2xl">Discovery</h4>
+                <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">Define your freedom and assess your options</p>
               </div>
 
-              <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center space-y-4 hover:shadow-lg transition-shadow duration-300">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl">
+              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 flex flex-col items-center space-y-6 sm:space-y-8 hover:shadow-2xl transition-shadow duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#e63950]/10 rounded-full flex items-center justify-center text-gray-900 font-bold text-2xl sm:text-3xl group-hover:bg-[#e63950]/20 transition-colors">
                   2
                 </div>
-                <h4 className="font-semibold text-gray-900 text-lg">Strategy</h4>
-                <p className="text-sm text-gray-600 leading-relaxed">Co-create a plan tailored to your goals</p>
+                <h4 className="font-semibold text-gray-900 text-xl sm:text-2xl">Strategy</h4>
+                <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">Co-create a plan tailored to your goals</p>
               </div>
 
-              <div className="bg-white rounded-xl shadow-md p-6 flex flex-col items-center space-y-4 hover:shadow-lg transition-shadow duration-300">
-                <div className="w-12 h-12 bg-gray-200 rounded-full flex items-center justify-center text-gray-900 font-bold text-xl">
+              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 lg:p-10 flex flex-col items-center space-y-6 sm:space-y-8 hover:shadow-2xl transition-shadow duration-300">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#e63950]/10 rounded-full flex items-center justify-center text-gray-900 font-bold text-2xl sm:text-3xl group-hover:bg-[#e63950]/20 transition-colors">
                   3
                 </div>
-                <h4 className="font-semibold text-gray-900 text-lg">Execution</h4>
-                <p className="text-sm text-gray-600 leading-relaxed">Implement with clarity, confidence, and commitment</p>
+                <h4 className="font-semibold text-gray-900 text-xl sm:text-2xl">Execution</h4>
+                <p className="text-sm sm:text-lg text-gray-600 leading-relaxed">Implement with clarity, confidence, and commitment</p>
               </div>
             </div>
 
             <Button
               variant="premium"
               size="lg"
-              className="group bg-gray-900 text-white hover:bg-gray-800 transition-colors"
+              className="group bg-[#e63950] text-white hover:bg-[#be3144] transition-colors duration-300 text-base sm:text-xl py-3 sm:py-4 px-6 sm:px-8 rounded-xl"
             >
               Start Your Journey Today
-              <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="w-5 h-5 sm:w-7 sm:h-7 ml-2 sm:ml-4 group-hover:translate-x-2 transition-transform" />
             </Button>
           </div>
         </div>

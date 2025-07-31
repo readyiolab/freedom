@@ -26,81 +26,98 @@ const AboutSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-background-soft">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center mb-16 fade-in-up">
-          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-6">
+    <section className="py-12 sm:py-16 lg:py-20 bg-[#d3d6db]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto text-center mb-12 sm:mb-16 lg:mb-20 fade-in-up">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#303841] mb-4 sm:mb-6 lg:mb-8">
             A Legacy of Helping Founders Define Their{' '}
-            <span className="text-gradient-primary">Freedom</span>
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e63950] to-[#be3144]">
+              Freedom
+            </span>
           </h2>
-          <p className="text-xl text-foreground-soft leading-relaxed">
-            For over three decades, Freedom Mergers & Acquisitions has been a trusted advisor to 
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#3a4750] leading-relaxed max-w-2xl sm:max-w-3xl mx-auto">
+            For over three decades, Freedom Mergers & Acquisitions has been a trusted advisor to
             founders across the United States, specializing in complex, high-stakes transitions.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
-          <div className="space-y-8 fade-in-up">
-            <div className="space-y-6">
-              <h3 className="text-3xl font-bold text-foreground">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center mb-12 sm:mb-16 lg:mb-24">
+          <div className="space-y-6 sm:space-y-8 lg:space-y-10 fade-in-up">
+            <div className="space-y-6 sm:space-y-8">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#303841]">
                 How do you define Freedom?
               </h3>
-              <p className="text-lg text-foreground-soft leading-relaxed">
-                Our work begins with a deep understanding that every founder is different. Freedom means 
-                something unique to each of us. For some, it's about stepping away completely after a 
+              <p className="text-sm sm:text-base lg:text-xl text-[#3a4750] leading-relaxed">
+                Our work begins with a deep understanding that every founder is different. Freedom means
+                something unique to each of us. For some, it's about stepping away completely after a
                 lifetime of dedication. For others, it's about staying involved, but on their own terms.
               </p>
-              <p className="text-lg text-foreground-soft leading-relaxed">
-                At Freedom M&A, our approach is not transactional—it is transformational. We believe that 
-                meaningful transitions begin not with spreadsheets or deal structures, but with conversations 
+              <p className="text-sm sm:text-base lg:text-xl text-[#3a4750] leading-relaxed">
+                At Freedom M&A, our approach is not transactional—it is transformational. We believe that
+                meaningful transitions begin not with spreadsheets or deal structures, but with conversations
                 around vision, values, and family.
               </p>
             </div>
 
-            <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-lg">
-              <blockquote className="text-lg font-medium text-foreground italic">
-                "We co-create a plan rooted in your definition of freedom, exploring all viable options 
+            <div className="bg-[#d3d6db]/20 border-l-4 border-[#e63950] p-6 sm:p-8 lg:p-10 rounded-r-xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <blockquote className="text-lg sm:text-xl lg:text-2xl font-semibold text-[#303841] italic mb-6 sm:mb-8">
+                "We co-create a plan rooted in your definition of freedom, exploring all viable options
                 based on what fits your life, your business, and your future."
               </blockquote>
             </div>
           </div>
 
           <div className="relative fade-in-up stagger-1">
-            <img 
-             src="/lovable-uploads/a788d54f-9dd7-463b-8d6f-3d1ad45a6ade.webp"
+            <img
+              src="/about.jpg"
               alt="Freedom Mergers & Acquisitions Logo"
-              className="w-full max-w-md mx-auto hover-scale"
+              className="w-full max-w-sm sm:max-w-md lg:max-w-lg mx-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-300"
             />
           </div>
         </div>
 
-        {/* Values Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 fade-in-up stagger-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 fade-in-up stagger-2">
           {values.map((value, index) => (
-            <Card key={index} className="card-elegant p-8 text-center hover-lift group">
-              <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary/20 transition-colors">
-                <value.icon className="w-8 h-8 text-primary" />
+            <Card
+              key={index}
+              className="bg-[#d3d6db]/20 p-6 sm:p-8 text-center hover-lift group border border-[#3a4750]/20 hover:border-[#e63950] transition-all shadow-xl hover:shadow-2xl rounded-2xl"
+            >
+              <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#be3144]/10 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 group-hover:bg-[#e63950]/20 transition-colors">
+                <value.icon className="w-6 h-6 sm:w-8 sm:h-8 text-[#e63950]" />
               </div>
-              <h4 className="text-xl font-semibold text-foreground mb-3">{value.title}</h4>
-              <p className="text-foreground-soft">{value.description}</p>
+              <h4 className="text-base sm:text-lg lg:text-xl font-semibold text-[#303841] mb-2 sm:mb-3">
+                {value.title}
+              </h4>
+              <p className="text-sm sm:text-base text-[#3a4750]">{value.description}</p>
             </Card>
           ))}
         </div>
 
-        {/* Experience Stats */}
-        <div className="mt-20 bg-primary rounded-3xl p-12 text-center fade-in-up stagger-3">
-          <div className="grid md:grid-cols-3 gap-8">
+        <div className="mt-12 sm:mt-16 lg:mt-20 bg-[#be3144] rounded-3xl p-8 sm:p-10 lg:p-12 text-center fade-in-up stagger-3">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             <div>
-              <div className="text-4xl lg:text-5xl font-bold text-white mb-2">$75M - $150M</div>
-              <div className="text-white/80">Annual Revenue Range</div>
+              <div className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#d3d6db] mb-1 sm:mb-2">
+                $75M - $150M
+              </div>
+              <div className="text-[#d3d6db]/80 text-sm sm:text-base lg:text-lg">
+                Annual Revenue Range
+              </div>
             </div>
             <div>
-              <div className="text-4xl lg:text-5xl font-bold text-white mb-2">180 Days</div>
-              <div className="text-white/80">Exclusive Contract Terms</div>
+              <div className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#d3d6db] mb-1 sm:mb-2">
+                180 Days
+              </div>
+              <div className="text-[#d3d6db]/80 text-sm sm:text-base lg:text-lg">
+                Exclusive Contract Terms
+              </div>
             </div>
             <div>
-              <div className="text-4xl lg:text-5xl font-bold text-white mb-2">Success Based</div>
-              <div className="text-white/80">Fee Structure</div>
+              <div className="text-2xl sm:text-3xl lg:text-5xl font-bold text-[#d3d6db] mb-1 sm:mb-2">
+                Success Based
+              </div>
+              <div className="text-[#d3d6db]/80 text-sm sm:text-base lg:text-lg">
+                Fee Structure
+              </div>
             </div>
           </div>
         </div>

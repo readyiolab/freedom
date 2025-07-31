@@ -19,9 +19,13 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'playfair': ['Playfair Display', 'serif'],
-				'inter': ['Inter', 'sans-serif'],
-			},
+  jost: ['Jost', 'sans-serif'],
+  nata: ['"Nata Sans"', 'sans-serif'],
+  poppins: ['Poppins', 'sans-serif'],
+  roboto: ['Roboto', 'sans-serif'],
+  inter: ['Inter', 'sans-serif'],
+  playfair: ['"Playfair Display"', 'serif'], // ✅ This is what was missing
+},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

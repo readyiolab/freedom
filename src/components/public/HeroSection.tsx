@@ -1,77 +1,117 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, Users, Award } from "lucide-react";
+import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center hero-gradient overflow-hidden">
-     
-      
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-10">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#d3d6db] via-[#3a4750] to-[#303841]">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0">
+        <div className="absolute top-20 left-10 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-gradient-to-r from-[#d3d6db] to-[#3a4750] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-40 right-10 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-gradient-to-r from-[#3a4750] to-[#be3144] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-1/3 w-32 h-32 sm:w-48 sm:h-48 lg:w-72 lg:h-72 bg-gradient-to-r from-[#303841] to-[#be3144] rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-pulse animation-delay-4000"></div>
+      </div>
+
+      {/* Floating Particles */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/4 left-1/4 animate-float">
+          <Sparkles className="w-4 h-4 sm:w-6 sm:h-6 text-[#d3d6db] opacity-60" />
+        </div>
+        <div className="absolute top-1/3 right-1/4 animate-float animation-delay-1000">
+          <Star className="w-3 h-3 sm:w-4 sm:h-4 text-[#be3144] opacity-50" />
+        </div>
+        <div className="absolute bottom-1/3 left-1/5 animate-float animation-delay-2000">
+          <Zap className="w-4 h-4 sm:w-5 sm:h-5 text-[#303841] opacity-40" />
+        </div>
+        <div className="absolute top-2/3 right-1/3 animate-float animation-delay-3000">
+          <Sparkles className="w-2 h-2 sm:w-3 sm:h-3 text-[#3a4750] opacity-70" />
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto text-center">
           {/* Content */}
-          <div className="space-y-6 lg:space-y-8 text-center lg:text-left">
-            <div className="space-y-4 lg:space-y-6 fade-in-up">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 lg:px-4 lg:py-2 rounded-full text-xs lg:text-sm font-medium backdrop-blur-sm">
-               
-              </div>
-              
-              <h1 className="text-3xl sm:text-4xl lg:text-6xl xl:text-7xl font-bold text-white leading-tight hero-text-shadow">
-                Define Your Path to{' '}
-                <span className="text-gradient-gold block sm:inline">Freedom</span>
+          <div className="space-y-8 sm:space-y-10 lg:space-y-12">
+            <div className="space-y-6 sm:space-y-6 lg:space-y-8">
+              {/* Premium Badge (Empty in original, keeping as placeholder) */}
+              <div className="inline-flex items-center gap-2 px-2 py-2 sm:px-6 sm:py-3 rounded-full text-xs sm:text-sm font-semibold"></div>
+
+              {/* Main Heading */}
+              <h1 className="text-6xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-extrabold leading-tight tracking-tight">
+                <span className="block text-white">
+                  Define Your Path to
+                </span>
+                <span className="block mt-2 sm:mt-1 sm:mt-2 text-[#be3144]">
+                  Ultimate Freedom
+                </span>
               </h1>
-              
-              <p className="text-base sm:text-lg lg:text-xl xl:text-2xl text-white/90 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                For over three decades, we've guided founders through complex transitions, 
-                helping business owners align their journey with personal freedom.
+
+              {/* Description */}
+              <p className="text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#d3d6db] leading-relaxed max-w-3xl mx-auto font-light">
+                For over <span className="font-bold text-[#be3144]">three decades</span>, we've guided visionary founders through transformative transitions, 
+                helping business owners align their journey with personal and financial freedom.
               </p>
             </div>
-            
-            <div className="flex flex-col sm:flex-row gap-3 lg:gap-4 fade-in-up stagger-1 justify-center lg:justify-start">
-              <Button variant="gold" size="xl" className="group w-full sm:w-auto">
-                Start Your Journey
-                <ArrowRight className="w-4 h-4 lg:w-5 lg:h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button variant="elegant" size="xl" className="w-full sm:w-auto">
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 lg:gap-6 justify-center items-center">
+              <button className="group relative px-8 py-4 sm:px-8 sm:py-4 lg:px-10 lg:py-5 bg-[#be3144] rounded-full text-[#d3d6db] font-bold text-lg sm:text-base lg:text-xl shadow-xl hover:shadow-[#be3144]/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto">
+                <span className="relative z-10 flex items-center justify-center gap-3 sm:gap-2 sm:gap-3">
+                  Start Your Journey
+                  <ArrowRight className="w-5 h-5 sm:w-4 sm:h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#be3144] to-[#3a4750] rounded-full opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
+              </button>
+
+              <button className="group px-8 py-4 sm:px-8 sm:py-4 lg:px-10 lg:py-5 bg-white backdrop-blur-md border border-[#d3d6db]/20 rounded-full text-black font-semibold text-lg sm:text-base lg:text-xl hover:bg-[#d3d6db]/20 transition-all duration-300 hover:scale-105 w-full sm:w-auto">
                 Learn Our Process
-              </Button>
-            </div>
-            
-            {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 lg:gap-6 pt-6 lg:pt-8 fade-in-up stagger-2">
-              <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">35+</div>
-                <div className="text-white/80 text-xs sm:text-sm">Years Experience</div>
-              </div>
-              <div className="text-center lg:text-left ">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">$75M+</div>
-                <div className="text-white/80 text-xs sm:text-sm">Deal Minimum</div>
-              </div>
-              <div className="text-center lg:text-left">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white">180</div>
-                <div className="text-white/80 text-xs sm:text-sm">Day Process</div>
-              </div>
-            </div>
-          </div>
-          
-          {/* Hero Image */}
-          <div className="relative fade-in-up stagger-1 order-first lg:order-last">
-            <div className="relative mt-8 lg:mt-10">
-              <img 
-                src="/lovable-uploads/48a55599-f860-4944-bc38-a6071c36dd1e.png"
-                alt="Dave Marshall - Founder of Freedom M&A"
-                className="w-64 sm:w-80 lg:w-[400px] max-w-md mx-auto rounded-2xl shadow-2xl"
-              />
+              </button>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-4 lg:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <div className="w-5 h-8 lg:w-6 lg:h-10 border-2 border-white/30 rounded-full flex justify-center">
-          <div className="w-1 h-2 lg:h-3 bg-white/50 rounded-full mt-1.5 lg:mt-2 animate-pulse"></div>
-        </div>
-      </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-15px) rotate(180deg); }
+        }
+
+        @keyframes shimmer {
+          0% { background-position: -200% 0; }
+          100% { background-position: 200% 0; }
+        }
+
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+
+        .animate-shimmer {
+          animation: shimmer 3s ease-in-out infinite;
+        }
+
+        .animation-delay-1000 {
+          animation-delay: 1s;
+        }
+
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+
+        .animation-delay-3000 {
+          animation-delay: 3s;
+        }
+
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+
+        /* Mobile-first responsive text sizing */
+        @media (max-width: 640px) {
+          h1 {
+            line-height: 1.05;
+          }
+        }
+      `}</style>
     </section>
   );
 };

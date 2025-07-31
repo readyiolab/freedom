@@ -1,30 +1,82 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { GraduationCap, Building2, Heart, Award, Users, TrendingUp } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
 
 const DaveMarshallSection = () => {
   const achievements = [
     {
       icon: GraduationCap,
       title: "Cornell University Graduate",
-      description: "Former President of Cornell Alumni Association"
+      description: "Former President of Cornell Alumni Association",
     },
     {
       icon: Building2,
       title: "35+ Years Experience",
-      description: "Led multi-million-dollar equity placements and venture-backed IPOs"
+      description: "Led multi-million-dollar equity placements and venture-backed IPOs",
     },
     {
       icon: Heart,
       title: "Impact Advocate",
-      description: "Raised millions for financial and charitable initiatives"
+      description: "Raised millions for financial and charitable initiatives",
     },
     {
       icon: Award,
       title: "Trusted Advisor",
-      description: "Guided countless founders through transformative transitions"
-    }
+      description: "Guided countless founders through transformative transitions",
+    },
   ];
+
+  // State for the counting animation
+  const [count, setCount] = useState(0); // Start at 0
+  const [hasStarted, setHasStarted] = useState(false); // Track if animation has started
+  const badgeRef = useRef(null); // Reference to the badge element
+
+  // IntersectionObserver to detect when the badge is in view
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true); // Prevent restarting the animation
+        }
+      },
+      {
+        threshold: 0.5, // Trigger when 50% of the badge is visible
+      }
+    );
+
+    if (badgeRef.current) {
+      observer.observe(badgeRef.current);
+    }
+
+    return () => {
+      if (badgeRef.current) {
+        observer.unobserve(badgeRef.current);
+      }
+    };
+  }, [hasStarted]);
+
+  // Counting animation logic
+  useEffect(() => {
+    if (!hasStarted) return; // Only start animation when hasStarted is true
+
+    const target = 35;
+    const duration = 2000; // Animation duration in milliseconds (2 seconds)
+    const increment = target / (duration / 50); // Increment per 50ms
+
+    const interval = setInterval(() => {
+      setCount((prev) => {
+        if (prev < target) {
+          return Math.min(prev + increment, target);
+        }
+        clearInterval(interval);
+        return prev;
+      });
+    }, 50); // Update every 50ms
+
+    return () => clearInterval(interval); // Cleanup on unmount
+  }, [hasStarted]);
 
   return (
     <section className="py-12 sm:py-16 lg:py-24 bg-[#d3d6db]/30">
@@ -95,9 +147,14 @@ const DaveMarshallSection = () => {
                 className="w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-300"
               />
 
-              {/* Experience Badge */}
-              <div className="absolute -bottom-6 sm:-bottom-8 -left-6 sm:-left-8 bg-[#303841] text-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl hover:scale-110 transition-transform duration-300">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold">35+</div>
+              {/* Experience Badge with Counting Animation */}
+              <div
+                ref={badgeRef} // Attach ref to the badge
+                className="absolute -bottom-6 sm:-bottom-8 -left-6 sm:-left-8 bg-[#303841] text-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl hover:scale-110 transition-transform duration-300"
+              >
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+                  {Math.floor(count)}+ {/* Display integer part of count */}
+                </div>
                 <div className="text-sm sm:text-base font-semibold">Years Building Legacies</div>
               </div>
             </div>

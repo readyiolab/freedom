@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,11 +17,36 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { label: "About", href: "#about" },
+    { label: "About", href: "#about" }, // Changed back to #about for in-page scrolling
     { label: "Services", href: "#services" },
     { label: "Dave Marshall", href: "#dave" },
     { label: "Contact", href: "#contact" },
   ];
+
+  const handleNavClick = (e, href) => {
+    e.preventDefault();
+    setIsOpen(false);
+
+    if (href === "/") {
+      // For home route
+      navigate(href);
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      // For anchor links (e.g., #about, #services)
+      const targetId = href.substring(1);
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // Fallback: navigate to home and try scrolling again
+        navigate("/");
+        setTimeout(() => {
+          const fallbackElement = document.getElementById(targetId);
+          fallbackElement?.scrollIntoView({ behavior: "smooth" });
+        }, 100);
+      }
+    }
+  };
 
   return (
     <nav
@@ -33,11 +60,13 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center">
-            <img
-              src="/lovable-uploads/a788d54f-9dd7-463b-8d6f-3d1ad45a6ade.webp"
-              alt="Freedom M&A"
-              className="h-12 w-auto"
-            />
+            <a href="/" onClick={(e) => handleNavClick(e, "/")}>
+              <img
+                src="/lovable-uploads/a788d54f-9dd7-463b-8d6f-3d1ad45a6ade.webp"
+                alt="Freedom M&A"
+                className="h-12 w-auto"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
@@ -46,6 +75,7 @@ const Navigation = () => {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleNavClick(e, item.href)}
                 className={`font-medium transition-colors hover:text-primary ${
                   isScrolled ? "text-foreground" : "text-white"
                 }`}
@@ -95,8 +125,8 @@ const Navigation = () => {
                 <a
                   key={item.label}
                   href={item.href}
+                  onClick={(e) => handleNavClick(e, item.href)}
                   className="block px-6 py-2 text-foreground font-medium hover:text-primary transition-colors"
-                  onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </a>

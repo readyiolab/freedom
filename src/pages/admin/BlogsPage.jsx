@@ -3,14 +3,13 @@ import { useQuery } from '@tanstack/react-query';
 import { api } from '../../components/lib/api';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useToast } from '@/components/ui/use-toast';
 import BlogTable from '../../components/admin/Blogs/BlogTable';
 import BlogForm from '../../components/admin/Blogs/BlogForm';
 
 export default function BlogsPage() {
   const [page, setPage] = useState(1);
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isFormVisible, setIsFormVisible] = useState(false); // State to toggle form visibility
   const pageSize = 10;
   const { toast } = useToast();
 
@@ -34,14 +33,17 @@ export default function BlogsPage() {
         <CardTitle className="text-black">Blogs</CardTitle>
       </CardHeader>
       <CardContent>
-        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-          <DialogTrigger asChild>
-            <Button className="mb-4 bg-black text-white hover:bg-gray-800">Create Blog</Button>
-          </DialogTrigger>
-          <DialogContent className="bg-white text-black border-black">
-            <BlogForm setIsDialogOpen={setIsDialogOpen} />
-          </DialogContent>
-        </Dialog>
+        <Button
+          className="mb-4 bg-black text-white hover:bg-gray-800"
+          onClick={() => setIsFormVisible(!isFormVisible)} // Toggle form visibility
+        >
+          {isFormVisible ? 'Hide Form' : 'Create Blog'}
+        </Button>
+        {isFormVisible && (
+          <div className="mb-4 p-4 bg-white border border-black rounded">
+            <BlogForm setIsDialogOpen={setIsFormVisible} />
+          </div>
+        )}
         <BlogTable
           blogs={data?.blogs || []}
           page={page}

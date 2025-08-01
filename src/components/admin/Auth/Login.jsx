@@ -13,6 +13,7 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log('Submitting login form with:', { username });
     try {
       await handleLogin({ username, password });
       toast({ title: 'Success', description: 'Logged in successfully!' });

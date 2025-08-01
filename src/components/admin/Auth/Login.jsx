@@ -45,7 +45,11 @@ export default function Login() {
               required
               className="border-black text-black placeholder-gray-500"
             />
-            <Button type="submit" disabled={loading} className="w-full bg-black text-white hover:bg-gray-800">
+            <Button
+              type="submit"
+              disabled={loading}
+              className="w-full bg-black text-white hover:bg-gray-800"
+            >
               {loading ? 'Logging in...' : 'Login'}
             </Button>
           </form>

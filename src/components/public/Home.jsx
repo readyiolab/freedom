@@ -28,9 +28,12 @@ export default function Home() {
         </section>
       </main>
       <Footer />
-      <div className="fixed top-4 right-4 z-50">
+      <div className="fixed top-10 right-4 z-50">
         <Chatbot />
       </div>
+      <div className="bg-black text-white p-4">
+      <h1 className="text-2xl">Should be white text on black bg</h1>
+    </div>
     </div>
   );
 }

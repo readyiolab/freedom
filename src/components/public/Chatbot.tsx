@@ -77,8 +77,8 @@ const Chatbot = () => {
     <>
       {/* Chat Toggle Button - Fixed at bottom right */}
       <div
-        className="fixed bottom-4 right-4 z-[9999]"
-        style={{ bottom: "1rem", right: "1rem" }}
+        className="fixed bottom-4 right-4 z-[9999] "
+      
       >
         <button
        

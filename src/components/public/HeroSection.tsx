@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles, Star, Zap } from "lucide-react";
 
-const HeroSection = () => {
+const HeroSection = ({ 
+  title = "Define Your Path to Ultimate Freedom",
+  subtitle = "For over three decades, we've guided visionary founders through transformative transitions, helping business owners align their journey with personal and financial freedom.",
+  ctaPrimary = "Start Your Journey",
+  ctaSecondary = "Learn Our Process",
+  ctaPrimaryLink = "#",
+  ctaSecondaryLink = "#"
+}) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-[#d3d6db] via-[#3a4750] to-[#303841]">
       {/* Animated Background Elements */}
@@ -38,33 +45,38 @@ const HeroSection = () => {
               {/* Main Heading */}
               <h1 className="text-6xl sm:text-4xl md:text-5xl lg:text-7xl xl:text-8xl font-extrabold leading-tight tracking-tight">
                 <span className="block text-white">
-                  Define Your Path to
+                  {title.split(' ').slice(0, Math.ceil(title.split(' ').length / 2)).join(' ')}
                 </span>
                 <span className="block mt-2 sm:mt-1 sm:mt-2 text-[#be3144]">
-                  Ultimate Freedom
+                  {title.split(' ').slice(Math.ceil(title.split(' ').length / 2)).join(' ')}
                 </span>
               </h1>
 
               {/* Description */}
               <p className="text-xl sm:text-lg md:text-xl lg:text-2xl xl:text-3xl text-[#d3d6db] leading-relaxed max-w-3xl mx-auto font-light">
-                For over <span className="font-bold text-[#be3144]">three decades</span>, we've guided visionary founders through transformative transitions, 
-                helping business owners align their journey with personal and financial freedom.
+                {subtitle}
               </p>
             </div>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-4 lg:gap-6 justify-center items-center">
-              <button className="group relative px-8 py-4 sm:px-8 sm:py-4 lg:px-10 lg:py-5 bg-[#be3144] rounded-full text-[#d3d6db] font-bold text-lg sm:text-base lg:text-xl shadow-xl hover:shadow-[#be3144]/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto">
+              <a 
+                href={ctaPrimaryLink}
+                className="group relative px-8 py-4 sm:px-8 sm:py-4 lg:px-10 lg:py-5 bg-[#be3144] rounded-full text-[#d3d6db] font-bold text-lg sm:text-base lg:text-xl shadow-xl hover:shadow-[#be3144]/25 transition-all duration-300 hover:scale-105 w-full sm:w-auto inline-block text-center"
+              >
                 <span className="relative z-10 flex items-center justify-center gap-3 sm:gap-2 sm:gap-3">
-                  Start Your Journey
+                  {ctaPrimary}
                   <ArrowRight className="w-5 h-5 sm:w-4 sm:h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#be3144] to-[#3a4750] rounded-full opacity-0 group-hover:opacity-100 transition-opacity blur-xl"></div>
-              </button>
+              </a>
 
-              <button className="group px-8 py-4 sm:px-8 sm:py-4 lg:px-10 lg:py-5 bg-white backdrop-blur-md border border-[#d3d6db]/20 rounded-full text-black font-semibold text-lg sm:text-base lg:text-xl hover:bg-[#d3d6db]/20 transition-all duration-300 hover:scale-105 w-full sm:w-auto">
-                Learn Our Process
-              </button>
+              <a 
+                href={ctaSecondaryLink}
+                className="group px-8 py-4 sm:px-8 sm:py-4 lg:px-10 lg:py-5 bg-white backdrop-blur-md border border-[#d3d6db]/20 rounded-full text-black font-semibold text-lg sm:text-base lg:text-xl hover:bg-[#d3d6db]/20 transition-all duration-300 hover:scale-105 w-full sm:w-auto inline-block text-center"
+              >
+                {ctaSecondary}
+              </a>
             </div>
           </div>
         </div>

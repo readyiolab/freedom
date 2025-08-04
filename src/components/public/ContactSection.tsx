@@ -45,7 +45,7 @@ const ContactSection = () => {
             <span className="text-gradient-primary">Freedom?</span>
           </h2>
           <p className="text-xl text-foreground-soft leading-relaxed">
-            Let us help you put your business—and your life—on a path to Freedom. 
+            Let us help you put your business—and your life—on a path to Freedom.
             Schedule a confidential consultation to explore your options.
           </p>
         </div>
@@ -56,7 +56,7 @@ const ContactSection = () => {
             <div className="mb-8">
               <h3 className="text-2xl font-bold text-foreground mb-4">Start Your Journey</h3>
               <p className="text-foreground-soft">
-                Complete this form for a confidential consultation. We'll discuss your goals 
+                Complete this form for a confidential consultation. We'll discuss your goals
                 and explore how we can help you achieve your definition of freedom.
               </p>
             </div>
@@ -72,17 +72,17 @@ const ContactSection = () => {
                   <Input placeholder="Smith" className="w-full" />
                 </div>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Email</label>
                 <Input type="email" placeholder="john@company.com" className="w-full" />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Company</label>
                 <Input placeholder="Your Company Name" className="w-full" />
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">Annual Revenue</label>
                 <select className="w-full p-3 border border-input rounded-md bg-background">
@@ -93,10 +93,10 @@ const ContactSection = () => {
                   <option>$150M+</option>
                 </select>
               </div>
-              
+
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">How do you define Freedom?</label>
-                <Textarea 
+                <Textarea
                   placeholder="Tell us about your goals, vision, and what freedom means to you..."
                   className="w-full h-32"
                 />
@@ -105,7 +105,7 @@ const ContactSection = () => {
               <div className="flex items-start gap-3">
                 <input type="checkbox" className="mt-1" />
                 <p className="text-sm text-foreground-soft">
-                  I agree to receive communications from Freedom M&A and understand that all 
+                  I agree to receive communications from Freedom M&A and understand that all
                   information shared will be kept strictly confidential.
                 </p>
               </div>
@@ -127,7 +127,7 @@ const ContactSection = () => {
             <div className="space-y-6">
               <h3 className="text-2xl font-bold text-foreground">Get in Touch</h3>
               <p className="text-foreground-soft leading-relaxed">
-                We understand that reaching out about your business is a significant step. 
+                We understand that reaching out about your business is a significant step.
                 Our team is ready to have a confidential conversation about your future.
               </p>
             </div>
@@ -180,17 +180,17 @@ const ContactSection = () => {
             Your Journey to Freedom Starts Here
           </h3>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join the founders who've successfully transitioned to their next chapter. 
+            Join the founders who've successfully transitioned to their next chapter.
             Let's discuss how we can help you achieve your vision of freedom.
           </p>
           <Button
-  
-  size="xl"
-  className="group bg-white text-black hover:bg-white ho"
->
-  Book Your Consultation
-  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-</Button>
+
+            size="xl"
+            className="group bg-white text-black hover:bg-white ho"
+          >
+            Book Your Consultation
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </Button>
 
         </div>
       </div>

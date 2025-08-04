@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Building2, Heart, Award, Users, TrendingUp } from "lucide-react";
+import { GraduationCap, Building2, Heart, Award, Users, TrendingUp, ArrowRight } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 
 const DaveMarshallSection = () => {
@@ -142,18 +142,18 @@ const DaveMarshallSection = () => {
           <div className="space-y-6 sm:space-y-8 lg:space-y-10 fade-in-up stagger-1">
             <div className="relative">
               <img
-                src="/lovable-uploads/48a55599-f860-4944-bc38-a6071c36dd1e.png"
+               src="/lovable-uploads/48a55599-f860-4944-bc38-a6071c36dd1e.png"
                 alt="Dave Marshall - Founder of Freedom M&A"
                 className="w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-300"
               />
 
               {/* Experience Badge with Counting Animation */}
               <div
-                ref={badgeRef} // Attach ref to the badge
+                ref={badgeRef}
                 className="absolute -bottom-6 sm:-bottom-8 -left-6 sm:-left-8 bg-[#303841] text-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl hover:scale-110 transition-transform duration-300"
               >
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-bold">
-                  {Math.floor(count)}+ {/* Display integer part of count */}
+                  {Math.floor(count)}+
                 </div>
                 <div className="text-sm sm:text-base font-semibold">Years Building Legacies</div>
               </div>
@@ -215,11 +215,39 @@ const DaveMarshallSection = () => {
               </div>
             </div>
 
-            <blockquote className="text-lg sm:text-xl lg:text-3xl font-semibold text-[#303841] italic bg-[#d3d6db]/20 rounded-2xl p-6 sm:p-8 lg:p-10 shadow-xl hover:shadow-2xl transition-shadow duration-300">
+            <blockquote className="text-lg sm:text-xl lg:text-3xl font-semibold text-[#303841] italic bg-[#d3d6db]/20  p-6 sm:p-8 lg:p-10  transition-shadow duration-300">
               "This is the legacy Dave Marshall is building—one founder, one story, one freedom at a time."
             </blockquote>
           </div>
         </div>
+
+        {/* Added CTA Section */}
+        <section className="mt-12 sm:mt-16 lg:mt-20 py-8 sm:py-12 lg:py-16 bg-[#be3144] rounded-3xl fade-in-up stagger-4">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
+                Ready to Define Your Freedom?
+              </h2>
+              <p className="text-sm sm:text-base lg:text-lg text-white/80 mb-6 sm:mb-8 leading-relaxed">
+                Partner with Dave Marshall and Freedom M&A to transform your business journey into a path toward personal and financial freedom. Schedule a consultation or download our guide to get started.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Button
+                  className="group bg-white text-[#303841] hover:bg-gray-100 font-bold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-lg"
+                >
+                  Schedule Consultation
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button
+                  variant="outline"
+                  className="group bg-white text-[#303841] hover:bg-gray-100 font-bold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-lg"
+                >
+                  Download Our Guide
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );

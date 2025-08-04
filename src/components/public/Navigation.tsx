@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -17,35 +18,17 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { label: "About", href: "#about" }, // Changed back to #about for in-page scrolling
-    { label: "Services", href: "#services" },
-    { label: "Dave Marshall", href: "#dave" },
-    { label: "Contact", href: "#contact" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/services" },
+    { label: "Dave Marshall", href: "/dave" },
+    { label: "Contact", href: "/contact" },
   ];
 
   const handleNavClick = (e, href) => {
     e.preventDefault();
     setIsOpen(false);
-
-    if (href === "/") {
-      // For home route
-      navigate(href);
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      // For anchor links (e.g., #about, #services)
-      const targetId = href.substring(1);
-      const targetElement = document.getElementById(targetId);
-      if (targetElement) {
-        targetElement.scrollIntoView({ behavior: "smooth" });
-      } else {
-        // Fallback: navigate to home and try scrolling again
-        navigate("/");
-        setTimeout(() => {
-          const fallbackElement = document.getElementById(targetId);
-          fallbackElement?.scrollIntoView({ behavior: "smooth" });
-        }, 100);
-      }
-    }
+    navigate(href);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (

@@ -1,28 +1,29 @@
 import { Card } from "@/components/ui/card";
-import { CheckCircle, Target, Heart, Shield } from "lucide-react";
+import { Button } from "@/components/ui/button"; // Corrected import for Button
+import { CheckCircle, Target, Heart, Shield, ArrowRight } from "lucide-react";
 
 const AboutSection = () => {
   const values = [
     {
       icon: Target,
       title: "Mission-Driven",
-      description: "We align every transaction with your personal definition of freedom"
+      description: "We align every transaction with your personal definition of freedom",
     },
     {
       icon: Shield,
       title: "Trust & Integrity",
-      description: "Complete transparency and accountability in every engagement"
+      description: "Complete transparency and accountability in every engagement",
     },
     {
       icon: Heart,
       title: "Personal Touch",
-      description: "We understand that transitions are deeply personal decisions"
+      description: "We understand that transitions are deeply personal decisions",
     },
     {
       icon: CheckCircle,
       title: "Results Focused",
-      description: "Success-based fees ensure we're aligned with your outcomes"
-    }
+      description: "Success-based fees ensure we're aligned with your outcomes",
+    },
   ];
 
   return (
@@ -121,6 +122,31 @@ const AboutSection = () => {
             </div>
           </div>
         </div>
+
+        <section className="mt-12 sm:mt-16 lg:mt-20 py-8 sm:py-12 lg:py-16 bg-[#be3144] rounded-3xl fade-in-up stagger-4">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
+                Ready to Define Your Freedom?
+              </h2>
+              <p className="text-sm sm:text-base lg:text-lg text-white/80 mb-6 sm:mb-8 leading-relaxed">
+                Partner with Freedom M&A to transform your business journey into a path toward personal and financial freedom. Schedule a consultation or download our guide to get started.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Button className="group bg-white text-[#303841] hover:bg-gray-100 font-bold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-lg">
+                  Schedule Consultation
+                  <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button
+                  variant="outline"
+                  className="group bg-white text-[#303841] hover:bg-gray-100 font-bold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-lg"
+                >
+                  Download Our Guide
+                </Button>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
     </section>
   );

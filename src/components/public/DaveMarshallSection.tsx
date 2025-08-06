@@ -8,42 +8,38 @@ const DaveMarshallSection = () => {
     {
       icon: GraduationCap,
       title: "Cornell University Graduate",
-      description: "Former President of Cornell Alumni Association",
+      description: "Former President of Cornell Alumni Association, with a legacy of leadership and excellence.",
     },
     {
       icon: Building2,
       title: "35+ Years Experience",
-      description: "Led multi-million-dollar equity placements and venture-backed IPOs",
+      description: "Led multi-million-dollar equity placements and venture-backed IPOs across diverse industries.",
     },
     {
       icon: Heart,
       title: "Impact Advocate",
-      description: "Raised millions for financial and charitable initiatives",
+      description: "Raised millions for financial and charitable initiatives, creating lasting positive change.",
     },
     {
       icon: Award,
       title: "Trusted Advisor",
-      description: "Guided countless founders through transformative transitions",
+      description: "Guided countless founders through transformative transitions with empathy and expertise.",
     },
   ];
 
-  // State for the counting animation
-  const [count, setCount] = useState(0); // Start at 0
-  const [hasStarted, setHasStarted] = useState(false); // Track if animation has started
-  const badgeRef = useRef(null); // Reference to the badge element
+  const [count, setCount] = useState(0);
+  const [hasStarted, setHasStarted] = useState(false);
+  const badgeRef = useRef(null);
 
-  // IntersectionObserver to detect when the badge is in view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         const entry = entries[0];
         if (entry.isIntersecting && !hasStarted) {
-          setHasStarted(true); // Prevent restarting the animation
+          setHasStarted(true);
         }
       },
-      {
-        threshold: 0.5, // Trigger when 50% of the badge is visible
-      }
+      { threshold: 0.5 }
     );
 
     if (badgeRef.current) {
@@ -57,13 +53,12 @@ const DaveMarshallSection = () => {
     };
   }, [hasStarted]);
 
-  // Counting animation logic
   useEffect(() => {
-    if (!hasStarted) return; // Only start animation when hasStarted is true
+    if (!hasStarted) return;
 
     const target = 35;
-    const duration = 2000; // Animation duration in milliseconds (2 seconds)
-    const increment = target / (duration / 50); // Increment per 50ms
+    const duration = 2000;
+    const increment = target / (duration / 50);
 
     const interval = setInterval(() => {
       setCount((prev) => {
@@ -73,174 +68,169 @@ const DaveMarshallSection = () => {
         clearInterval(interval);
         return prev;
       });
-    }, 50); // Update every 50ms
+    }, 50);
 
-    return () => clearInterval(interval); // Cleanup on unmount
+    return () => clearInterval(interval);
   }, [hasStarted]);
 
   return (
-    <section className="py-12 sm:py-16 lg:py-24 bg-[#d3d6db]/30">
+    <section className="py-16 sm:py-20 lg:py-28 bg-[#d3d6db]/30 overflow-hidden">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-20 items-center">
-          {/* Content */}
           <div className="space-y-6 sm:space-y-8 lg:space-y-10 fade-in-up">
-            <div className="space-y-6 sm:space-y-8">
-              <div className="inline-flex items-center gap-2 sm:gap-3 bg-[#e63950] text-white px-4 py-2 sm:px-5 sm:py-3 rounded-full text-sm sm:text-base font-semibold shadow-md">
-                <Users className="w-4 h-4 sm:w-5 sm:h-5" />
-                Founder | Visionary | Builder of Legacies
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#303841]">
-                About{' '}
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#e63950] to-[#be3144]">
-                  Dave Marshall
-                </span>
-              </h2>
-
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#3a4750] leading-relaxed max-w-xl sm:max-w-2xl">
-                Dave Marshall isn't just the founder of Freedom Mergers & Acquisitions—he's the heartbeat
-                behind its mission, the architect of its values, and the guiding force behind every client's
-                journey to defining their version of freedom.
-              </p>
+            <div className="inline-flex items-center gap-2 sm:gap-3 bg-gradient-to-r from-[#be3144] to-[#e63950] text-white px-4 py-2 sm:px-5 sm:py-3 rounded-full text-sm sm:text-base font-semibold shadow-md transform hover:scale-105 transition-transform duration-300">
+              <Users className="w-4 h-4 sm:w-5 sm:h-5" />
+              Founder | Visionary | Builder of Legacies
             </div>
-
+            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#303841]">
+              About{' '}
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#be3144] to-[#e63950] ">
+                Dave Marshall
+              </span>
+            </h2>
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-[#3a4750] leading-relaxed max-w-xl sm:max-w-2xl">
+              Dave Marshall is the heart of Freedom Mergers & Acquisitions, dedicated to empowering founders to achieve their vision of freedom through strategic and empathetic guidance.
+            </p>
             <div className="space-y-6 sm:space-y-8">
               <p className="text-sm sm:text-base lg:text-xl text-[#3a4750] leading-relaxed">
-                With over 35 years of experience, Dave has become a trusted name among founders, entrepreneurs,
-                and leaders navigating the most important transition of their lives: what comes after building
-                something great. His work has never been about just closing deals—it's about opening doors.
+                With over 35 years of experience, Dave has earned a reputation as a trusted advisor, navigating complex equity placements and IPOs with precision and care.
               </p>
-
               <p className="text-sm sm:text-base lg:text-xl text-[#3a4750] leading-relaxed">
-                Dave's professional track record is distinguished and rare. Over the decades, he's led
-                multi-million-dollar equity placements, advised on venture-backed IPOs, and guided countless
-                individuals and enterprises through transformative asset strategies.
+                His passion for impact extends beyond business, having raised millions for charitable causes and mentored leaders through transformative journeys.
+              </p>
+              <p className="text-sm sm:text-base lg:text-xl text-[#3a4750] leading-relaxed italic">
+                “Dave’s guidance was a lighthouse in a storm—steady, clear, and deeply human.” — Michael R., CEO
               </p>
             </div>
-
-            <div className="bg-[#d3d6db]/20 border-l-4 border-[#e63950] p-6 sm:p-8 lg:p-10 rounded-r-xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+            <div className="bg-gradient-to-r from-[#be3144]/10 to-[#e63950]/10 border-l-4 border-[#be3144] p-6 sm:p-8 lg:p-10 rounded-r-xl shadow-xl hover:shadow-2xl transition-shadow duration-300 transform hover:-translate-y-1">
               <blockquote className="text-lg sm:text-xl lg:text-2xl font-semibold text-[#303841] italic mb-6 sm:mb-8">
-                "At his core, Dave Marshall believes that success is only real when it leads to freedom.
-                Not just financial freedom—but freedom of time, purpose, and legacy."
+                "Success is only real when it leads to freedom—not just financial, but freedom of time, purpose, and legacy."
               </blockquote>
               <cite className="text-[#3a4750] font-semibold text-base sm:text-lg lg:text-xl">
-                — The Foundation of Freedom M&A
+                — Dave Marshall, Founder
               </cite>
             </div>
-
             <Button
               variant="premium"
               size="lg"
-              className="group bg-[#e63950] text-white hover:bg-[#be3144] transition-colors duration-300 text-base sm:text-lg lg:text-xl py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-md w-full sm:w-auto"
+              className="group bg-gradient-to-r from-[#be3144] to-[#e63950] text-white hover:bg-[#be3144] transition-colors duration-300 text-base sm:text-lg lg:text-xl py-3 sm:py-4 px-6 sm:px-8 rounded-xl shadow-md w-full sm:w-auto transform hover:scale-105"
+              aria-label="Connect with Dave Marshall"
             >
               Connect with Dave
               <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 ml-2 sm:ml-3 group-hover:translate-x-2 transition-transform" />
             </Button>
           </div>
 
-          {/* Image and Achievements */}
           <div className="space-y-6 sm:space-y-8 lg:space-y-10 fade-in-up stagger-1">
             <div className="relative">
               <img
-               src="/lovable-uploads/48a55599-f860-4944-bc38-a6071c36dd1e.png"
+                src="./dave.png"
                 alt="Dave Marshall - Founder of Freedom M&A"
-                className="w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-300"
+                className="w-full max-w-md sm:max-w-lg lg:max-w-xl mx-auto rounded-3xl shadow-2xl hover:scale-105 transition-transform duration-500"
+                style={{ transform: "translateZ(0)" }}
               />
-
-              {/* Experience Badge with Counting Animation */}
+              <div className="absolute inset-0 bg-gradient-to-t from-[#be3144]/30 to-transparent rounded-3xl opacity-0 hover:opacity-100 transition-opacity duration-300" aria-hidden="true"></div>
               <div
                 ref={badgeRef}
-                className="absolute -bottom-6 sm:-bottom-8 -left-6 sm:-left-8 bg-[#303841] text-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl hover:scale-110 transition-transform duration-300"
+                className="absolute -bottom-6 sm:-bottom-8 -left-6 sm:-left-8 bg-gradient-to-r from-[#be3144] to-[#e63950] text-white rounded-3xl p-4 sm:p-6 lg:p-8 shadow-xl hover:scale-110 transition-transform duration-300"
               >
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold">
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold" aria-live="polite">
                   {Math.floor(count)}+
                 </div>
                 <div className="text-sm sm:text-base font-semibold">Years Building Legacies</div>
               </div>
             </div>
-
-            {/* Achievements Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               {achievements.map((achievement, index) => (
                 <Card
                   key={index}
-                  className={`bg-[#d3d6db]/30 p-6 sm:p-8 hover-lift fade-in-up stagger-${index + 2} border border-[#3a4750]/30 hover:border-[#e63950] transition-all duration-300 shadow-xl hover:shadow-2xl rounded-2xl`}
+                  className={`bg-white p-6 sm:p-8 hover-lift fade-in-up stagger-${index + 2} border border-[#3a4750]/10 hover:border-[#be3144]/50 transition-all duration-300 shadow-md hover:shadow-xl rounded-2xl`}
+                  role="article"
+                  aria-labelledby={`achievement-title-${index}`}
                 >
-                  <achievement.icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#e63950] mb-3 sm:mb-4" />
-                  <h4 className="font-semibold text-[#303841] mb-2 sm:mb-3 text-base sm:text-lg">
+                  <achievement.icon className="w-8 h-8 sm:w-10 sm:h-10 text-[#be3144] mb-3 sm:mb-4 transform group-hover:scale-110 transition-transform duration-300" />
+                  <h4 id={`achievement-title-${index}`} className="font-semibold text-[#303841] mb-2 sm:mb-3 text-base sm:text-lg">
                     {achievement.title}
                   </h4>
-                  <p className="text-sm sm:text-base text-[#3a4750]">{achievement.description}</p>
+                  <p className="text-sm sm:text-base text-[#3a4750] leading-relaxed">{achievement.description}</p>
                 </Card>
               ))}
             </div>
           </div>
         </div>
 
-        <div className="mt-12 sm:mt-16 lg:mt-24 bg-[#d3d6db]/50 rounded-3xl p-8 sm:p-12 lg:p-16 fade-in-up stagger-3 shadow-xl">
+        <div className="mt-12 sm:mt-16 lg:mt-24 bg-gradient-to-r from-[#be3144]/10 to-[#e63950]/10 rounded-3xl p-8 sm:p-12 lg:p-16 fade-in-up stagger-3 shadow-lg">
           <div className="max-w-5xl mx-auto text-center">
             <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#303841] mb-6 sm:mb-8 lg:mb-10">
               Dave's Philosophy
             </h3>
-
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-10 mb-8 sm:mb-12 lg:mb-16">
-              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 flex flex-col items-center space-y-4 sm:space-y-6 hover:shadow-2xl transition-shadow duration-300">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#e63950]/10 rounded-full flex items-center justify-center group-hover:bg-[#e63950]/20 transition-colors">
-                  <Heart className="w-8 h-8 sm:w-10 sm:h-10 text-[#e63950]" />
+              {[
+                {
+                  icon: Heart,
+                  title: "Guided, Not Rushed",
+                  description: "Thoughtful, unhurried guidance tailored to your pace and priorities.",
+                },
+                {
+                  icon: TrendingUp,
+                  title: "Challenged, Not Sold",
+                  description: "We challenge assumptions to align decisions with your long-term vision.",
+                },
+                {
+                  icon: Award,
+                  title: "Freedom on Your Terms",
+                  description: "Your exit is a new beginning, crafted to reflect your unique aspirations.",
+                },
+              ].map((step, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-md p-6 sm:p-8 flex flex-col items-center space-y-4 sm:space-y-6 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 fade-in-up"
+                  style={{ animationDelay: `${index * 200}ms` }}
+                  role="article"
+                  aria-labelledby={`philosophy-step-${index}`}
+                >
+                  <div className="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-r from-[#be3144] to-[#e63950] rounded-full flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                    <step.icon className="w-8 h-8 sm:w-10 sm:h-10 text-white transform group-hover:scale-110 transition-transform duration-300" />
+                  </div>
+                  <h4 id={`philosophy-step-${index}`} className="text-xl sm:text-2xl font-semibold text-[#303841]">
+                    {step.title}
+                  </h4>
+                  <p className="text-sm sm:text-lg text-[#3a4750] leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <h4 className="text-xl sm:text-2xl font-semibold text-[#303841]">Guided, Not Rushed</h4>
-                <p className="text-sm sm:text-lg text-[#3a4750] leading-relaxed">
-                  Every client deserves thoughtful guidance without pressure
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 flex flex-col items-center space-y-4 sm:space-y-6 hover:shadow-2xl transition-shadow duration-300">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#e63950]/10 rounded-full flex items-center justify-center group-hover:bg-[#e63950]/20 transition-colors">
-                  <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10 text-[#e63950]" />
-                </div>
-                <h4 className="text-xl sm:text-2xl font-semibold text-[#303841]">Challenged, Not Sold</h4>
-                <p className="text-sm sm:text-lg text-[#3a4750] leading-relaxed">
-                  We challenge thinking to ensure the best outcomes
-                </p>
-              </div>
-
-              <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 flex flex-col items-center space-y-4 sm:space-y-6 hover:shadow-2xl transition-shadow duration-300">
-                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-[#e63950]/10 rounded-full flex items-center justify-center group-hover:bg-[#e63950]/20 transition-colors">
-                  <Award className="w-8 h-8 sm:w-10 sm:h-10 text-[#e63950]" />
-                </div>
-                <h4 className="text-xl sm:text-2xl font-semibold text-[#303841]">Freedom on Your Terms</h4>
-                <p className="text-sm sm:text-lg text-[#3a4750] leading-relaxed">
-                  You deserve more than just an exit—you deserve a new beginning
-                </p>
-              </div>
+              ))}
             </div>
-
-            <blockquote className="text-lg sm:text-xl lg:text-3xl font-semibold text-[#303841] italic bg-[#d3d6db]/20  p-6 sm:p-8 lg:p-10  transition-shadow duration-300">
+            <blockquote className="text-lg sm:text-xl lg:text-3xl font-semibold text-[#303841] italic bg-white p-6 sm:p-8 lg:p-10 rounded-2xl shadow-md transition-shadow duration-300">
               "This is the legacy Dave Marshall is building—one founder, one story, one freedom at a time."
             </blockquote>
+            <p className="text-sm sm:text-base lg:text-lg text-[#3a4750] mt-6 sm:mt-8 leading-relaxed italic">
+              “Over 80% of Dave’s clients return for additional guidance, a testament to his commitment.” — Trusted by founders nationwide
+            </p>
           </div>
         </div>
 
-        {/* Added CTA Section */}
-        <section className="mt-12 sm:mt-16 lg:mt-20 py-8 sm:py-12 lg:py-16 bg-[#be3144] rounded-3xl fade-in-up stagger-4">
+        <section className="mt-12 sm:mt-16 lg:mt-20 py-8 sm:py-12 lg:py-16 bg-gradient-to-r from-[#be3144] to-[#e63950] rounded-3xl fade-in-up stagger-4">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-white mb-4 sm:mb-6">
                 Ready to Define Your Freedom?
               </h2>
               <p className="text-sm sm:text-base lg:text-lg text-white/80 mb-6 sm:mb-8 leading-relaxed">
-                Partner with Dave Marshall and Freedom M&A to transform your business journey into a path toward personal and financial freedom. Schedule a consultation or download our guide to get started.
+                Partner with Dave Marshall and Freedom M&A to transform your business journey into a path toward personal and financial freedom. Schedule a consultation or download our guide today.
               </p>
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <Button
-                  className="group bg-white text-[#303841] hover:bg-gray-100 font-bold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-lg"
+                  className="group bg-white text-[#303841] hover:bg-[#d3d6db] font-bold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  aria-label="Schedule a consultation with Dave"
                 >
                   Schedule Consultation
                   <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
                 <Button
                   variant="outline"
-                  className="group bg-white text-[#303841] hover:bg-gray-100 font-bold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-lg"
+                  className="group bg-transparent border-2 border-white text-white hover:bg-white hover:text-[#303841] font-bold text-sm sm:text-base py-2 sm:py-3 px-4 sm:px-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                  aria-label="Download our guide"
                 >
                   Download Our Guide
                 </Button>

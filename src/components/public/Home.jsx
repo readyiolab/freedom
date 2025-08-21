@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Users,
   Target,
@@ -65,9 +65,24 @@ const processSteps = [
   },
 ];
 
+// Dummy data for search responses
+const dummyResponses = {
+  "What does a typical Freedom M&A project cost or include?":
+    "A typical Freedom M&A project for businesses with $75M–$150M in revenue includes a comprehensive four-step process: Discovery & Vision (2-3 weeks), Strategy Development (3-4 weeks), Market Preparation (4-6 weeks), and Execution & Closing (8-12 weeks). Services cover business valuation, strategic planning, market positioning, and deal execution, tailored to align with your financial and personal goals. Costs vary based on project complexity and business size, typically ranging from low six figures to mid-seven figures for full-service engagements. For precise pricing, contact Freedom M&A at https://x.ai/freedom-ma.",
+  "How does Freedom M&A handle founder-owned business transitions?":
+    "Freedom M&A specializes in founder-owned businesses, guiding you through a tailored process to ensure a seamless transition. We start with Discovery & Vision to understand your goals, followed by Strategy Development to create a plan that maximizes value. Market Preparation positions your business for appeal, and Execution & Closing ensures a smooth deal with transparency. Our 35+ years of experience and 100% success rate ensure your vision is realized.",
+  "Why choose Freedom M&A for valuations, sales, and mergers?":
+    "Freedom M&A offers over 35 years of experience, a 100% success rate, and 500+ completed deals, focusing on businesses with $75M–$150M in revenue. Our personalized approach, four-step process, and commitment to aligning with your definition of freedom make us the ideal partner for valuations, sales, and mergers.",
+};
+
 const Home = () => {
   const countRefs = useRef([]);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResponse, setSearchResponse] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
+  // Handle IntersectionObserver for stats animation (unchanged)
   useEffect(() => {
     const observers = stats.map((stat, index) => {
       return new IntersectionObserver(
@@ -107,6 +122,36 @@ const Home = () => {
     return () => observers.forEach((observer) => observer.disconnect());
   }, []);
 
+  // Handle search input change
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  // Handle search submission
+  const handleSearchSubmit = async (e) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) return;
+
+    setIsLoading(true);
+    setError(null);
+    setSearchResponse("");
+
+    try {
+      // Simulate API delay
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+
+      // Look up dummy response
+      const response =
+        dummyResponses[searchQuery.trim()] ||
+        "Sorry, no response available for this query. Try one of the suggested questions or contact Freedom M&A for more details.";
+      setSearchResponse(response);
+    } catch (err) {
+      setError("An error occurred while processing your query.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <>
       <HeroSection
@@ -116,6 +161,111 @@ const Home = () => {
         ctaSecondary="Learn Our Process"
         backgroundImage="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80"
       />
+
+      {/* AI Search Section */}
+      <section className="py-16 md:py-24 bg-white text-center">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#be3144] mb-4">
+              <span className="text-[#303841]">Explore Freedom M&A</span> Ai
+            </h1>
+            <p className="text-base md:text-lg text-gray-600 mb-6">
+              With 35+ years of experience and 500+ successful deals, Freedom
+              M&A helps $75M–$150M founders achieve seamless valuations,
+              mergers, and sales.
+            </p>
+            <form
+              onSubmit={handleSearchSubmit}
+              className="relative max-w-xl mx-auto"
+            >
+              <input
+                type="text"
+                placeholder="e.g., 'How can Freedom M&A help me sell my company?'"
+                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-[#be3144] text-sm"
+                value={searchQuery}
+                onChange={handleSearchChange}
+              />
+              <button
+                type="submit"
+                className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-[#be3144] text-white p-2 rounded-full"
+                disabled={isLoading}
+              >
+                {isLoading ? (
+                  <svg
+                    className="w-5 h-5 animate-spin"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <circle
+                      className="opacity-25"
+                      cx="12"
+                      cy="12"
+                      r="10"
+                      stroke="currentColor"
+                      strokeWidth="4"
+                    ></circle>
+                    <path
+                      className="opacity-75"
+                      fill="currentColor"
+                      d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                    ></path>
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1116.65 6.65 7.5 7.5 0 0116.65 16.65z"
+                    ></path>
+                  </svg>
+                )}
+              </button>
+            </form>
+            {error && <p className="mt-4 text-red-500 text-sm">{error}</p>}
+            {searchResponse && (
+              <div className="mt-6 p-4 bg-gray-50 rounded-lg shadow">
+                <p className="text-gray-800 text-left">{searchResponse}</p>
+              </div>
+            )}
+            <div className="mt-8">
+              <h3 className="text-lg font-semibold text-gray-700 mb-4">
+                Suggestions
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {Object.keys(dummyResponses).map((suggestion, index) => (
+                  <div
+                    key={index}
+                    className="bg-gray-50 p-4 rounded-lg shadow hover:shadow-md transition-shadow cursor-pointer"
+                    onClick={() => {
+                      setSearchQuery(suggestion);
+                      setSearchResponse(dummyResponses[suggestion]);
+                    }}
+                  >
+                    <div className="text-[#be3144] mb-2">
+                      <svg
+                        className="w-6 h-6 inline"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
+                      </svg>
+                    </div>
+                    <p className="text-gray-800">{suggestion}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       <main className="min-h-screen bg-[#d3d6db]">
         {/* Summary Section */}
@@ -292,7 +442,6 @@ const Home = () => {
                   recapitalizations, mergers, debt restructuring, and turnaround
                   strategies.
                 </p>
-                
               </div>
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="group p-6 rounded-2xl bg-[#d3d6db]/20 shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
@@ -599,7 +748,6 @@ const Home = () => {
                   180-day exclusive contracts • Success-based fee structure •
                   Complete transparency
                 </p>
-               
               </div>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Toaster } from "./components/ui/toaster";
 import { Toaster as Sonner } from "./components/ui/sonner";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useSearchParams } from "react-router-dom";
 import { useAuth } from "./components/hooks/useAuth";
 
 // Lazy load components
@@ -11,6 +11,7 @@ const About = lazy(() => import("./components/public/About"));
 const Services = lazy(() => import("./components/public/Services"));
 const DaveMarshall = lazy(() => import("./components/public/DaveMarshall"));
 const Contact = lazy(() => import("./components/public/Contact"));
+const SearchResults = lazy(() => import("./components/public/SearchResults"));
 const Layout = lazy(() => import("./components/admin/layout/Layout"));
 const Login = lazy(() => import("./components/admin/Auth/Login"));
 const Index = lazy(() => import("./pages/admin/Index"));
@@ -31,6 +32,16 @@ const Loader = () => (
     </div>
   </div>
 );
+
+// Redirect Component for handling ?s= queries
+const SearchRedirect = () => {
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("s");
+  if (query) {
+    return <Navigate to={`/search?s=${encodeURIComponent(query)}`} replace />;
+  }
+  return <Navigate to="/" replace />;
+};
 
 export default function App() {
   const { isAuthenticated } = useAuth();
@@ -64,6 +75,8 @@ export default function App() {
               <Route path="/services" element={<Services />} />
               <Route path="/dave" element={<DaveMarshall />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/search" element={<SearchResults />} />
+              <Route path="/?s" element={<SearchRedirect />} /> 
             </Route>
             <Route path="*" element={<NotFound />} />
           </Routes>
